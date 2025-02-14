@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<button onclick="deleteAllCards()" style="background-color: red; color: white; padding: 10px; border: none; cursor: pointer;">Excluir Todos</button>
+	<div>
+		<input type="text" id="question" placeholder="Pergunta">
+		<input type="text" id="answer" placeholder="Resposta">
+		<button onclick="addFlashCard()">Adicionar</button>
+	</div>
+	<div class="flashcards" id="flashcards"></div>
     <script src="script.js"></script>
 </body>
 </html>
