@@ -1,12 +1,13 @@
+	
 let flashCardsData = [
-	{},
-	{},
-	{}
-];
-	function addFlashCard(){
+            { id: 1, question: "O que é React?", answer: "Uma biblioteca JavaScript para construir interfaces." },
+            { id: 2, question: "O que é CSS?", answer: "Uma linguagem de estilo para a web." },
+            { id: 3, question: "O que é JavaScript?", answer: "Uma linguagem de programação para a web." }
+        ];	
+	
+	function createCard(card){
 		const cardElement = document.createElement("div");
 		cardElement.classList.add("card");
-		cardElement.textContent = card.question;
 		cardElement.dataset.flipped = "false";
 
 		const deleteBtn = document.createElement("button");
@@ -16,8 +17,8 @@ let flashCardsData = [
 			e.stopPropagation();
 			deleteCard(card.id);
 		};
-
 		cardElement.appendChild(deleteBtn);
+		
 		cardElement.onclick = () => toggleFlip(cardElement, card);
 		return cardElement;
 	}
@@ -30,7 +31,6 @@ let flashCardsData = [
 			cardElement.textContent = card.question;
 			cardElement.dataset.flipped = "false";
 		}
-		cardElement.appendChild(cardElement.querySelector(".delete-btn"));
 	}
 	
 	function deleteCard(id) {
@@ -62,7 +62,7 @@ let flashCardsData = [
 		const flashcardsContainer = document.getElementById("flashcards");
 		flashcardsContainer.innerHTML = "";
 		flashCardsData.forEach(card => {
-			flashcardsContainer.appendChild(addFlashCard(card));
+			flashcardsContainer.appendChild(createCard(card));
 		});
 	}
 
